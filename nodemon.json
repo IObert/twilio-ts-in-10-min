@@ -1,0 +1,8 @@
+{
+    "delay": "0",
+    "ignore": [".git", "node_modules/**/node_modules"],
+    "verbose": true,
+    "watch": ["dist/server.js"],
+    "ext": "ts,json,html"
+  }
+  

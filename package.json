@@ -1,0 +1,36 @@
+{
+  "name": "twilio-ts-in-5-min",
+  "version": "1.0.0",
+  "description": "A quintessential introduction of Twilio for TypeScript fans",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "yarn clear && tsc",
+    "start": "node dist/server.js",
+    "clear": "shx rm -rf dist",
+    "dev:tsc": "yarn clear && tsc -w --preserveWatchOutput",
+    "dev:watch": "nodemon -r dotenv/config -w dist/ dist/server.js",
+    "dev": "concurrently -k -p \"[{name}]\" -n \"Transpiler,Server\" -c \"yellow.bold,cyan.bold\" \"yarn dev:tsc\" \"yarn dev:watch\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IObert/twilio-ts-in-5-min.git"
+  },
+  "author": "Marius Obert",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/IObert/twilio-ts-in-5-min/issues"
+  },
+  "homepage": "https://github.com/IObert/twilio-ts-in-5-min#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.18",
+    "concurrently": "^7.0.0",
+    "fastify-tsconfig": "^1.0.1",
+    "nodemon": "^2.0.15",
+    "dotenv": "^16.0.0",
+    "shx": "^0.3.4",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "fastify": "^3.27.1"
+  }
+}
