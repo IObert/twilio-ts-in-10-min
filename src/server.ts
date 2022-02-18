@@ -3,7 +3,7 @@ import fastify, { FastifyInstance } from "fastify";
 const server: FastifyInstance = fastify({});
 
 server
-  .all("/pull", async (_, reply) => {
+  .all("/hello", async (_, reply) => {
     reply.send({ hello: "world", secret: process.env.SECRET });
   });
 
