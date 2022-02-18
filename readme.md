@@ -6,7 +6,9 @@
 2. Make sure the promo code is valid
 3. Reset this repository
    ```Bash
+   git stash
    git fetch origin
+   git checkout main
    git reset --hard origin/master
    ```
 4. Open the "Buy a Number" page on the [Twilio Console](https://console.twilio.com/us1/develop/phone-numbers/manage/search?frameUrl=%2Fconsole%2Fphone-numbers%2Fsearch%3Fx-target-region%3Dus1&currentFrameUrl=%2Fconsole%2Fphone-numbers%2Fsearch%3FisoCountry%3DDE%26searchTerm%3D%26searchFilter%3Dleft%26searchType%3Dnumber%26x-target-region%3Dus1%26__override_layout__%3Dembed%26bifrost%3Dtrue)
