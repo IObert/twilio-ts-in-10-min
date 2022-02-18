@@ -1,1 +1,15 @@
 GET http://localhost:3000/hello
+
+### Test post to sms endpoint
+POST http://localhost:3000/sms HTTP/1.1
+Content-Type: application/json
+
+{}
+
+### Test post to sms endpoint
+POST http://localhost:3000/gatherAction HTTP/1.1
+Content-Type: application/json
+
+{
+    "Digits": "2"
+}
