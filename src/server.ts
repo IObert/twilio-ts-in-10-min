@@ -4,7 +4,7 @@ const server: FastifyInstance = fastify({});
 
 server
   .all("/hello", async (_, reply) => {
-    reply.send({ hello: "world", secret: process.env.SECRET });
+    reply.send({ hello: "world" });
   });
 
 server.listen(3000, function (err, address) {
