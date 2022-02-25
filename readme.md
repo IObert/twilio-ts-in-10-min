@@ -3,30 +3,27 @@
 ## Preprarations
 
 1. Make sure ngrok and the server aren't running
-2. Make sure the promo code is valid
-3. Reset this repository
+2. Reset this repository
    ```Bash
    git stash
    git fetch origin
    git checkout main
    git reset --hard origin/master
    ```
-4. Open the "Buy a Number" page on the [Twilio Console](https://console.twilio.com/us1/develop/phone-numbers/manage/search?frameUrl=%2Fconsole%2Fphone-numbers%2Fsearch%3Fx-target-region%3Dus1&currentFrameUrl=%2Fconsole%2Fphone-numbers%2Fsearch%3FisoCountry%3DDE%26searchTerm%3D%26searchFilter%3Dleft%26searchType%3Dnumber%26x-target-region%3Dus1%26__override_layout__%3Dembed%26bifrost%3Dtrue)
+3. Prepare the `.env` file (based on `test.env`)
+4. Make sure the promo code is valid
+
 
 ## Demo Flow
 
-1. **Buy a new number**
-
-2. **Create a new file `.env`**
-   ```
-   SECRET="Don't tell anyone"
-   PROMO="<code22>"
-   TWILIO_ACCOUNT_SID="<insert>"
-   TWILIO_AUTH_TOKEN="<insert>"
-   ```
-3. Start the server with `yarn dev` and talk about the `/hello` endpoint `.env`.
-4. Expose `process.env.SECRET` via request
-5. **Add a second endpoint** in the `src/server.ts`
+1. **Buy a new number** via the [Twilio Console](https://console.twilio.com/us1/develop/phone-numbers/manage/search?frameUrl=%2Fconsole%2Fphone-numbers%2Fsearch%3Fx-target-region%3Dus1&currentFrameUrl=%2Fconsole%2Fphone-numbers%2Fsearch%3FisoCountry%3DDE%26searchTerm%3D%26searchFilter%3Dleft%26searchType%3Dnumber%26x-target-region%3Dus1%26__override_layout__%3Dembed%26bifrost%3Dtrue) or
+  ```Bash
+  twilio phone-numbers:buy:mobile --country-code FI
+  # twilio phone-numbers:buy:mobile --country-code DE --address-sid ADhash --bundle-sid BUhash 
+  ```
+2. Start the server with `yarn dev` and talk about the `/hello` endpoint `.env`.
+3. Expose `process.env.SECRET` via request
+4. **Add a second endpoint** in the `src/server.ts`
 
    ```TypeScript
    .all("/sms", async (_, reply) => {
@@ -39,7 +36,7 @@
    })
    ```
 
-6. Start `ngrok` and there the webhook in the console.
+5. Start `ngrok` and there the webhook in the console.
 
    ```Bash
    ngrok http 3000
@@ -70,11 +67,11 @@
    > {}
    > ```
 
-7. Install Twilio client (and use factory to build TwiML)
+6. Install Twilio client (and use factory to build TwiML)
    ```Bash
    yarn add twilio
    ```
-8. **Create a new file `makeCalls.ts`**
+7. **Create a new file `makeCalls.ts`**
 
    ```TypeScript
     import { Twilio, twiml } from "twilio";
