@@ -12,18 +12,22 @@
    ```
 3. Prepare the `.env` file (based on `test.env`)
 4. Make sure the promo code is valid
+5. Open the [Twilio Console](https://console.twilio.com/us1/develop/phone-numbers/manage/search?frameUrl=%2Fconsole%2Fphone-numbers%2Fsearch%3Fx-target-region%3Dus1&currentFrameUrl=%2Fconsole%2Fphone-numbers%2Fsearch%3FisoCountry%3DDE%26searchTerm%3D%26searchFilter%3Dleft%26searchType%3Dnumber%26x-target-region%3Dus1%26__override_layout__%3Dembed%26bifrost%3Dtrue) 
 
 
 ## Demo Flow
 
-1. **Buy a new number** via the [Twilio Console](https://console.twilio.com/us1/develop/phone-numbers/manage/search?frameUrl=%2Fconsole%2Fphone-numbers%2Fsearch%3Fx-target-region%3Dus1&currentFrameUrl=%2Fconsole%2Fphone-numbers%2Fsearch%3FisoCountry%3DDE%26searchTerm%3D%26searchFilter%3Dleft%26searchType%3Dnumber%26x-target-region%3Dus1%26__override_layout__%3Dembed%26bifrost%3Dtrue) or
-  ```Bash
-  twilio phone-numbers:buy:mobile --country-code FI
-  # twilio phone-numbers:buy:mobile --country-code DE --address-sid ADhash --bundle-sid BUhash 
-  ```
+1. **Buy a new number** via the Twilio Console 
+    > Alternative: Use the CLI
+    > ```Bash
+    > twilio phone-numbers:buy:mobile --country-code US
+    > # twilio phone-numbers:buy:mobile --country-code DE --address-sid ADhash --bundle-sid BUhash 
+    > ```
+
 2. Start the server with `yarn dev` and talk about the `/hello` endpoint `.env`.
-3. Expose `process.env.SECRET` via request
-4. **Add a second endpoint** in the `src/server.ts`
+3. Encourage everyone to turn on their ringer.
+4. Expose `process.env.SECRET` via request
+5. **Add a second endpoint** in the `src/server.ts`
 
    ```TypeScript
    .all("/sms", async (_, reply) => {
@@ -36,7 +40,7 @@
    })
    ```
 
-5. Start `ngrok` and there the webhook in the console.
+6. Start `ngrok` and there the webhook in the console.
 
    ```Bash
    ngrok http 3000
@@ -67,11 +71,11 @@
    > {}
    > ```
 
-6. Install Twilio client (and use factory to build TwiML)
+7. Install Twilio client (and use factory to build TwiML)
    ```Bash
    yarn add twilio
    ```
-7. **Create a new file `makeCalls.ts`**
+8. **Create a new file `makeCalls.ts`**
 
    ```TypeScript
     import { Twilio, twiml } from "twilio";
