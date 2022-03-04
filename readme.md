@@ -10,7 +10,7 @@
    git checkout main
    git reset --hard origin/master
    ```
-3. Prepare the `.env` file (based on `test.env`)
+3. Prepare the `.env` (based on `test.env`) file with the account secrets 
 4. Make sure the promo code is valid
 5. Open the [Twilio Console](https://console.twilio.com/us1/develop/phone-numbers/manage/search?frameUrl=%2Fconsole%2Fphone-numbers%2Fsearch%3Fx-target-region%3Dus1&currentFrameUrl=%2Fconsole%2Fphone-numbers%2Fsearch%3FisoCountry%3DDE%26searchTerm%3D%26searchFilter%3Dleft%26searchType%3Dnumber%26x-target-region%3Dus1%26__override_layout__%3Dembed%26bifrost%3Dtrue) 
 
@@ -39,15 +39,6 @@
         `);
    })
    ```
-
-6. Start `ngrok` and there the webhook in the console.
-
-   ```Bash
-   ngrok http 3000
-   # or
-   ngrok http -subdomain=<domain> 3000
-   ```
-
    This won't work out-of-the-box. You also need to be able to add a body parser for `content-type: application/json`.
 
    ```Bash
@@ -71,6 +62,13 @@
    > {}
    > ```
 
+6. Start `ngrok` and there the webhook in the console.
+
+   ```Bash
+   ngrok http 3000
+   # or
+   ngrok http -subdomain=<domain> 3000
+   ```
 7. Install Twilio client (and use factory to build TwiML)
    ```Bash
    yarn add twilio
