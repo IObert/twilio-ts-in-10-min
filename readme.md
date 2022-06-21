@@ -42,11 +42,11 @@
    This won't work out-of-the-box. You also need to be able to add a body parser for `content-type: application/json`.
 
    ```Bash
-   yarn add fastify-formbody
+   yarn add @fastify/formbody@6
    ```
 
    ```TypeScript
-   import FastifyBodyParser from "fastify-formbody";
+   import FastifyBodyParser from "@fastify/formbody";
 
    server
        .register(FastifyBodyParser)
